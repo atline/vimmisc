@@ -1,0 +1,15 @@
+1. NERDTree:
+Issue:
+Messy code
+Fix:
+Just need to do next in linux, The-NERD-tree\plugin\NERD_tree.vim
+call s:initVariable("g:NERDTreeDirArrows", !s:running_windows)
+->
+call s:initVariable("g:NERDTreeDirArrows", s:running_windows)
+
+2. visualmask:
+Issue:
+E197: Cannot set language to "en_US"
+Fix:
+Just need to do next in linux, Visual-Mark\plugin\visualmark.vim
+exec ":lan mes en_US" -> exec ":lan mes en_US.utf8"

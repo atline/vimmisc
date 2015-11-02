@@ -1,0 +1,241 @@
+" General
+if has('win32')
+    set nocompatible
+    source $VIMRUNTIME/vimrc_example.vim
+    source $VIMRUNTIME/mswin.vim
+    behave mswin
+
+    set diffexpr=MyDiff()
+    function MyDiff()
+      let opt = '-a --binary '
+      if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+      if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+      let arg1 = v:fname_in
+      if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+      let arg2 = v:fname_new
+      if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+      let arg3 = v:fname_out
+      if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+      let eq = ''
+      if $VIMRUNTIME =~ ' '
+        if &sh =~ '\<cmd'
+          let cmd = '""' . $VIMRUNTIME . '\diff"'
+          let eq = '"'
+        else
+          let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+        endif
+      else
+        let cmd = $VIMRUNTIME . '\diff'
+      endif
+      silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+    endfunction
+endif
+
+syntax enable
+syntax on
+
+if !has('win32')
+    colorscheme desert
+endif
+
+set nocp
+set bs=2
+set ruler
+set nonu
+set ts=4 sw=4
+filetype plugin indent on
+set ai nosi ci
+set et sts=4
+set sta
+set ignorecase
+
+"set helplang=cn
+set encoding=utf-8
+set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+set termencoding=utf-8
+
+" If internal messy code issue, may uncomment next
+if has('win32')
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
+    language messages zh_CN.utf-8
+endif
+
+set nobackup
+set history=50
+set hls
+set autowrite
+set vb t_vb=
+au GuiEnter * set t_vb=
+"set guioptions-=T
+
+" Space at end
+highlight WhitespaceEOL ctermbg=red guibg=#00FFFF
+match WhitespaceEOL /\s\+$/
+nmap <F7> :%s/\s*$//g<CR> :nohl<CR>
+
+" Enable vundle
+" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+filetype off
+if has('win32')
+    set rtp+=$VIM/vimfiles/bundle/vundle/
+    call vundle#rc('$VIM/vimfiles/bundle/')
+else
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+endif
+
+Bundle 'gmarik/vundle'
+Bundle 'The-NERD-tree'
+Bundle 'taglist.vim'
+Bundle 'ctrlp.vim'
+Bundle 'winmanager'
+Bundle 'javacomplete'
+Bundle 'Python-mode-klen'
+Bundle 'The-NERD-Commenter'
+Bundle 'fholgado/minibufexpl.vim'
+Bundle 'OmniCppComplete'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'Visual-Mark'
+Bundle 'derekwyatt/vim-scala'
+filetype on
+
+" Define leader key
+let mapleader=';'
+
+" NerdTree
+map <Leader>n :NERDTreeMirror<CR>
+map <Leader>n :NERDTreeToggle<CR>
+let g:NERDTreeWinPos="left"
+let g:NERDTreeWinSize=30
+let g:NERDTreeShowLineNumbers=1
+
+" TagList
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Use_Right_Window=1
+nmap <Leader>t :Tlist<CR>
+
+" MiniBufExplorer
+let g:miniBufExplMapCTabSwitchBufs=1
+let g:miniBufExplMapWindowNavVim=1 "different buffers change
+let g:miniBufExplMapWindowNavArrows=1
+let g:miniBufExplTabWrap=1 "make tabs show complete
+let g:miniBufExplModSelTarget=1
+
+" NetRW/TagList with WinManager
+let g:winManagerWindowLayout='FileExplorer|TagList'
+let g:winManagerWidth=30
+let g:defaultExplorer=0
+nmap wm :WMToggle<CR>
+
+" Cscope & ctags
+if has('cscope')
+    "set csprg=/usr/bin/cscope
+    set csto=1
+    set cst
+
+    " Add any database in current directory
+    set nocsverb
+    if filereadable("cscope.out")
+        cs add cscope.out
+    endif
+    set csverb
+
+    set cscopequickfix=c-,d-,e-,f-,g-,i-,s-,t-
+    nmap ,s :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap ,g :cs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap ,c :cs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap ,t :cs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap ,e :cs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap ,f :cs find f <C-R>=expand("<cword>")<CR><CR>
+    nmap ,i :cs find i <C-R>=expand("<cword>")<CR><CR>
+    nmap ,d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+    if has('win32')
+        nmap <F5> :silent !dir /s/b *.c,*.cpp,*.h,*.java > cscope.files<CR>
+                \ :silent !cscope -Rbk<CR>
+                \ :silent !ctags -R --c++-kinds=+px --fields=+iaS --extra=+q<CR>
+                \ :cs reset<CR><CR>
+        nmap <F6> :silent !dir /s/b *.c,*.cpp,*.h,*.java > cscope.files<CR>
+                \ :silent !cscope -Rbk<CR>
+                \ :cs reset<CR><CR>
+    else
+        nmap <F5> :!find . -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.java'>cscope.files<CR>
+                \ :!cscope -Rbkq<CR>
+                \ :!ctags -R --c++-kinds=+px --fields=+iaS --extra=+q<CR>
+                \ :cs reset<CR><CR>
+        nmap <F6> :!find . -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.java'>cscope.files<CR>
+                \ :!cscope -Rbkq<CR>
+                \ :cs reset<CR><CR>
+    endif
+endif
+
+" Omni
+set nocp
+filetype plugin indent on
+set completeopt=longest,menu
+
+"autocmd FileType python set omnifunc=pythoncomplete#Complete " use jedi
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType java set omnifunc=javacomplete#Complete
+
+" Omni cpp
+let OmniCpp_GlobalScopeSearch=1
+let OmniCpp_NamespaceSearch=1
+let OmniCpp_DisplayMode=1
+let OmniCpp_ShowScopeInAbbr=0
+let OmniCpp_ShowPrototypeInAbbr=1
+let OmniCpp_ShowAccess=1
+let OmniCpp_MayCompleteDot=1
+let OmniCpp_MayCompleteArrow=1
+let OmniCpp_MayCompleteScope=1
+
+" Easier moving of code blocks
+vnoremap < <gv
+vnoremap > >gv
+
+" CtrlP
+let g:ctrlp_max_height=30
+set wildignore+=*.pyc
+set wildignore+=*.class
+nmap <Leader>f :CtrlP<CR>
+
+" Python-mode
+let ropevim_enable_shortcuts=1
+let g:pymode_rope_goto_def_newwin="vnew"
+let g:pymode_rope_extended_complete=1
+let g:pymode_folding=0
+let g:pymode_options_colorcolumn=0
+let g:pymode_rope=0
+let g:pymode_lint=1
+let g:pymode_lint_checker="pyflakes,pep8,pep257"
+let g:pymode_lint_ignore="E265,E501,E302"
+let g:pymode_syntax=1
+let g:pymode_syntax_all=1
+let g:pymode_syntax_builtin_objs = 0
+let g:pymode_syntax_builtin_funcs = 0
+let g:pymode_syntax_indent_errors=g:pymode_syntax_all
+let g:pymode_syntax_space_errors=g:pymode_syntax_all
+autocmd FileType python setlocal nonumber " disable line number
+
+" Jedi
+let g:jedi#completions_enabled=1
+let g:jedi#goto_command=",d"
+let g:jedi#goto_assignments_command=",g"
+let g:jedi#goto_definitions_command=""
+let g:jedi#documentation_command="K"
+let g:jedi#usages_command=",n"
+let g:jedi#completions_command="<C-Space>"
+let g:jedi#rename_command=",r"
+let g:jedi#popup_on_dot=1
+
+" Color
+"highlight Pmenu ctermbg=darkred
+"highlight PmenuSel ctermbg=red ctermfg=yellow
+highlight PmenuSel ctermbg=gray
