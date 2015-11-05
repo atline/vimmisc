@@ -239,3 +239,6 @@ let g:jedi#popup_on_dot=1
 "highlight Pmenu ctermbg=darkred
 "highlight PmenuSel ctermbg=red ctermfg=yellow
 highlight PmenuSel ctermbg=gray
+
+" Autobreak
+autocmd FileType text setlocal textwidth=0
