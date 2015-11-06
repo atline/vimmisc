@@ -98,6 +98,7 @@ Bundle 'OmniCppComplete'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'Visual-Mark'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'nathanaelkane/vim-indent-guides'
 filetype on
 
 " Define leader key
@@ -109,6 +110,10 @@ map <Leader>n :NERDTreeToggle<CR>
 let g:NERDTreeWinPos="left"
 let g:NERDTreeWinSize=30
 let g:NERDTreeShowLineNumbers=1
+
+" NerdCommenter
+let NERDSpaceDelims=1
+let NERDCompactSexyComs=1
 
 " TagList
 let Tlist_Show_One_File=1
@@ -242,3 +247,11 @@ highlight PmenuSel ctermbg=gray
 
 " Autobreak
 autocmd FileType text setlocal textwidth=0
+
+" Vim-indent-guides
+let g:indent_guides_auto_colors=0
+let g:indent_guides_guide_size=1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+hi IndentGuidesOdd guibg=red ctermbg=3
+hi IndentGuidesEven guibg=green ctermbg=4
