@@ -256,3 +256,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 hi IndentGuidesOdd guibg=red ctermbg=3
 hi IndentGuidesEven guibg=green ctermbg=4
+
+" Vimgrep key mapping
+nnoremap <F3> :vimgrep /<C-R><C-W>/ **/*.* \| cw<CR>
