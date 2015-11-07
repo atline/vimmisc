@@ -99,6 +99,7 @@ Bundle 'davidhalter/jedi-vim'
 Bundle 'Visual-Mark'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'easymotion/vim-easymotion'
 filetype on
 
 " Define leader key
