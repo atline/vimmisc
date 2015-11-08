@@ -67,7 +67,8 @@ set hls
 set autowrite
 set vb t_vb=
 au GuiEnter * set t_vb=
-"set guioptions-=T
+set guioptions-=m
+set guioptions-=T
 
 " Space at end
 highlight WhitespaceEOL ctermbg=red guibg=#00FFFF
