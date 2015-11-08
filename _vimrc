@@ -259,3 +259,34 @@ hi IndentGuidesEven guibg=green ctermbg=4
 
 " Vimgrep key mapping
 nnoremap <F3> :vimgrep /<C-R><C-W>/ **/*.* \| cw<CR>
+
+" Mapping for open vimrc quickly
+if has('win32')
+    nmap <F1> :vsplit $VIM/_vimrc<CR>
+else
+    nmap <F1> :vsplit ~/.vimrc<CR>
+endif
+
+" Folding, zR for open all folder, zM for close all folder
+set foldlevel=99
+autocmd FileType c,cpp,java,javascript,vim,xml,html,xhtml set fdm=syntax
+autocmd FileType python set fdm=indent
+nnoremap <space> za
+vnoremap <space> za
+
+" Key mapping quick check
+" ;n    => open the nerdtree
+" ;cc   => comment
+" ;cu   => uncomment
+" ;t    => taglist
+" wm    => window manager
+" ,g    => cscope find definition, ,c etc
+" F5    => generate cscope, ctags
+" F6    => generate cscope only
+" ;f    => open the ctrlp
+" ,g    => python jedi go to definition
+" ;ig   => vim indent guide
+" mm    => mark
+" F3    => vim grep
+" F7    => remove white space at the end
+" ;;w   => quick motion
