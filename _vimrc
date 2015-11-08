@@ -36,6 +36,9 @@ syntax on
 
 if !has('win32')
     colorscheme desert
+else
+    " set gfn=Courier_New:h10
+    " colorscheme torte
 endif
 
 set nocp
@@ -70,9 +73,9 @@ au GuiEnter * set t_vb=
 set guioptions-=m
 set guioptions-=T
 
-" Space at end
-highlight WhitespaceEOL ctermbg=red guibg=#00FFFF
-match WhitespaceEOL /\s\+$/
+" Remove space at end
+" highlight WhitespaceEOL ctermbg=red guibg=#00FFFF
+" match WhitespaceEOL /\s\+$/
 nmap <F7> :%s/\s*$//g<CR> :nohl<CR>
 
 " Enable vundle
