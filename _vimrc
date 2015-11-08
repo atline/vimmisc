@@ -271,7 +271,7 @@ endif
 " Folding, zR for open all folder, zM for close all folder
 set foldlevel=99
 autocmd FileType c,cpp,java,javascript,vim,xml,html,xhtml set fdm=syntax
-autocmd FileType python set fdm=indent
+autocmd FileType python,yaml set fdm=indent
 nnoremap <space> za
 vnoremap <space> za
 
