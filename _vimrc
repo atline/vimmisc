@@ -72,6 +72,7 @@ set vb t_vb=
 au GuiEnter * set t_vb=
 set guioptions-=m
 set guioptions-=T
+set gcr=a:blinkon0
 
 " Remove space at end
 " highlight WhitespaceEOL ctermbg=red guibg=#00FFFF
