@@ -37,8 +37,8 @@ syntax on
 if !has('win32')
     colorscheme desert
 else
-    " set gfn=Courier_New:h10
-    " colorscheme torte
+    set gfn=Courier_New:h10
+    colorscheme torte
 endif
 
 set nocp
@@ -247,9 +247,9 @@ let g:jedi#rename_command=",r"
 let g:jedi#popup_on_dot=1
 
 " Color
-"highlight Pmenu ctermbg=darkred
-"highlight PmenuSel ctermbg=red ctermfg=yellow
-highlight PmenuSel ctermbg=gray
+highlight Pmenu ctermbg=darkmagenta guibg=darkmagenta
+highlight PmenuSel ctermbg=gray guibg=gray ctermfg=black guifg=black
+" highlight PmenuSel ctermbg=gray guibg=gray
 
 " Autobreak
 autocmd FileType text setlocal textwidth=0
