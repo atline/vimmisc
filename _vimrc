@@ -34,13 +34,6 @@ endif
 syntax enable
 syntax on
 
-if !has('win32')
-    colorscheme desert
-else
-    set gfn=Courier_New:h10
-    colorscheme torte
-endif
-
 set nocp
 set bs=2
 set ruler
@@ -105,7 +98,19 @@ Bundle 'Visual-Mark'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'easymotion/vim-easymotion'
+Bundle 'tomasr/molokai'
 filetype on
+
+" Define scheme
+if !has('win32')
+    colorscheme desert
+else
+    set gfn=Courier_New:h9
+    " colorscheme torte
+    " colorscheme desert
+    colorscheme molokai
+    let g:molokai_original=1
+endif
 
 " Define leader key
 let mapleader=';'
