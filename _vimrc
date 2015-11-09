@@ -298,4 +298,5 @@ vnoremap <space> za
 " mm    => mark
 " F3    => vim grep
 " F7    => remove white space at the end
-" ;;w   => quick motion
+" ;;w   => quick motion after current cursor
+" ;;b   => quick motion before current cursor
