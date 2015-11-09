@@ -105,11 +105,10 @@ filetype on
 if !has('win32')
     colorscheme desert
 else
-    set gfn=Courier_New:h9
     " colorscheme torte
     " colorscheme desert
-    colorscheme molokai
-    let g:molokai_original=1
+    colorscheme molokai | let g:molokai_original=1 | set gfn=Courier_New:h9
+    autocmd FileType text colorscheme default | set gfn= | set guioptions+=m | set guioptions+=T
 endif
 
 " Define leader key
