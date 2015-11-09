@@ -251,7 +251,7 @@ let g:jedi#rename_command=",r"
 let g:jedi#popup_on_dot=1
 
 " Color
-highlight Pmenu ctermbg=darkmagenta guibg=darkmagenta
+highlight Pmenu ctermbg=Brown guibg=Brown
 highlight PmenuSel ctermbg=gray guibg=gray ctermfg=black guifg=black
 " highlight PmenuSel ctermbg=gray guibg=gray
 
