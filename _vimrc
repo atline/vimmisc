@@ -109,6 +109,9 @@ else
     " colorscheme desert
     colorscheme molokai | let g:molokai_original=1 | set gfn=Courier_New:h9
     autocmd FileType text colorscheme default | set gfn= | set guioptions+=m | set guioptions+=T
+    nmap <F12> :colorscheme molokai<CR>
+              \:let g:molokai_original=1<CR>
+              \:set gfn=Courier_New:h9<CR>
 endif
 
 " Define leader key
@@ -169,20 +172,20 @@ if has('cscope')
 
     if has('win32')
         nmap <F5> :silent !dir /s/b *.c,*.cpp,*.h,*.java > cscope.files<CR>
-                \ :silent !cscope -Rbk<CR>
-                \ :silent !ctags -R --c++-kinds=+px --fields=+iaS --extra=+q<CR>
-                \ :cs reset<CR><CR>
+                 \:silent !cscope -Rbk<CR>
+                 \:silent !ctags -R --c++-kinds=+px --fields=+iaS --extra=+q<CR>
+                 \:cs reset<CR><CR>
         nmap <F6> :silent !dir /s/b *.c,*.cpp,*.h,*.java > cscope.files<CR>
-                \ :silent !cscope -Rbk<CR>
-                \ :cs reset<CR><CR>
+                 \:silent !cscope -Rbk<CR>
+                 \:cs reset<CR><CR>
     else
         nmap <F5> :!find . -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.java'>cscope.files<CR>
-                \ :!cscope -Rbkq<CR>
-                \ :!ctags -R --c++-kinds=+px --fields=+iaS --extra=+q<CR>
-                \ :cs reset<CR><CR>
+                 \:!cscope -Rbkq<CR>
+                 \:!ctags -R --c++-kinds=+px --fields=+iaS --extra=+q<CR>
+                 \:cs reset<CR><CR>
         nmap <F6> :!find . -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.java'>cscope.files<CR>
-                \ :!cscope -Rbkq<CR>
-                \ :cs reset<CR><CR>
+                 \:!cscope -Rbkq<CR>
+                 \:cs reset<CR><CR>
     endif
 endif
 
@@ -296,7 +299,9 @@ vnoremap <space> za
 " ,g    => python jedi go to definition
 " ;ig   => vim indent guide
 " mm    => mark
+" F2    => mark find
 " F3    => vim grep
 " F7    => remove white space at the end
 " ;;w   => quick motion after current cursor
 " ;;b   => quick motion before current cursor
+" F12   => reset to molokai scheme
