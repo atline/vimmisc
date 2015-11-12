@@ -260,8 +260,9 @@ highlight Pmenu ctermbg=DarkMagenta guibg=Brown
 highlight PmenuSel ctermbg=gray guibg=gray ctermfg=black guifg=black
 " highlight PmenuSel ctermbg=gray guibg=gray
 
-" Autobreak
-autocmd FileType text setlocal textwidth=0
+" Disable hard break and enable soft break
+autocmd FileType * setlocal textwidth=0
+autocmd FileType * setlocal wrap
 
 " Vim-indent-guides
 let g:indent_guides_auto_colors=0
