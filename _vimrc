@@ -112,6 +112,8 @@ else
     nmap <F12> :colorscheme molokai<CR>
               \:let g:molokai_original=1<CR>
               \:set gfn=Courier_New:h9<CR>
+              \:set guioptions-=m<CR>
+              \:set guioptions-=T<CR>
 endif
 
 " Define leader key
