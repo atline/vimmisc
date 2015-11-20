@@ -286,8 +286,8 @@ endif
 set foldlevel=99
 autocmd FileType c,cpp,java,javascript,vim,xml,html,xhtml set fdm=syntax
 autocmd FileType python,yaml set fdm=indent
-nnoremap <space> za
-vnoremap <space> za
+nnoremap <S-Space> za
+vnoremap <S-Space> za
 
 " Key mapping quick check
 " ;n    => open the nerdtree
