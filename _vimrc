@@ -308,3 +308,5 @@ vnoremap <S-Space> za
 " ;;w   => quick motion after current cursor
 " ;;b   => quick motion before current cursor
 " F12   => reset to molokai scheme
+" zM    => close all folding
+" zR    => open all folding
