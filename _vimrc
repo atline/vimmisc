@@ -103,7 +103,7 @@ filetype on
 
 " Define scheme
 if !has('win32')
-    colorscheme desert
+    colorscheme desert | set gfn=Courier_New:h9
 else
     " colorscheme torte
     " colorscheme desert
