@@ -85,7 +85,7 @@ endif
 
 Bundle 'gmarik/vundle'
 Bundle 'The-NERD-tree'
-Bundle 'taglist.vim'
+Bundle 'majutsushi/tagbar'
 Bundle 'ctrlp.vim'
 Bundle 'winmanager'
 Bundle 'javacomplete'
@@ -99,14 +99,16 @@ Bundle 'derekwyatt/vim-scala'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'easymotion/vim-easymotion'
 Bundle 'tomasr/molokai'
+" Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Shougo/neocomplete.vim'
+Bundle 'fatih/vim-go'
+Bundle 'SirVer/ultisnips'
 filetype on
 
 " Define scheme
 if !has('win32')
     colorscheme desert | set gfn=Courier_New:h9
 else
-    " colorscheme torte
-    " colorscheme desert
     colorscheme molokai | let g:molokai_original=1 | set gfn=Courier_New:h9
     autocmd FileType text colorscheme default | set gfn= | set guioptions+=m | set guioptions+=T
     nmap <F12> :colorscheme molokai<CR>
@@ -130,11 +132,10 @@ let g:NERDTreeShowLineNumbers=1
 let NERDSpaceDelims=1
 let NERDCompactSexyComs=1
 
-" TagList
-let Tlist_Show_One_File=1
-let Tlist_Exit_OnlyWindow=1
-let Tlist_Use_Right_Window=1
-nmap <Leader>t :Tlist<CR>
+" Tagbar
+let g:tagbar_width=35
+let g:tagbar_autofocus=1
+nmap <Leader>t :TagbarToggle<CR>
 
 " MiniBufExplorer
 let g:miniBufExplMapCTabSwitchBufs=1
@@ -142,12 +143,6 @@ let g:miniBufExplMapWindowNavVim=1 "different buffers change
 let g:miniBufExplMapWindowNavArrows=1
 let g:miniBufExplTabWrap=1 "make tabs show complete
 let g:miniBufExplModSelTarget=1
-
-" NetRW/TagList with WinManager
-let g:winManagerWindowLayout='FileExplorer|TagList'
-let g:winManagerWidth=30
-let g:defaultExplorer=0
-nmap wm :WMToggle<CR>
 
 " Cscope & ctags
 if has('cscope')
@@ -288,6 +283,22 @@ autocmd FileType c,cpp,java,javascript,vim,xml,html,xhtml set fdm=syntax
 autocmd FileType python,yaml set fdm=indent
 nnoremap <S-Space> za
 vnoremap <S-Space> za
+
+" NeoComplete, conflict with fdm=syntax
+let g:neocomplete#enable_at_startup=1
+
+" Ycm
+let g:ycm_server_keep_logfiles=1
+let g:ycm_server_log_level='debug'
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_key_list_select_completion=['', '']
+let g:ycm_key_list_previous_completion=['']
+let g:ycm_key_invoke_completion='<C-Space>'
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Key mapping quick check
 " ;n    => open the nerdtree
