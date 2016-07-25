@@ -35,6 +35,7 @@ syntax enable
 syntax on
 
 set nocp
+set noundofile
 set bs=2
 set ruler
 set nonu
