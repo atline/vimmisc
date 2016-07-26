@@ -9,16 +9,16 @@ For windows, copy _vimrc to /path/to/vim, for linux, rename _vimrc to .vimrc & c
 
 (III) Plugin
 1. NERDTree:
-Issue:
+Issue(on linux):
 Messy code
 Fix:
 Just need to do next in linux, The-NERD-tree\plugin\NERD_tree.vim
-call s:initVariable("g:NERDTreeDirArrows", !s:running_windows)
+call s:initVariable("g:NERDTreeDirArrows", !nerdtree#runningWindows())
 ->
-call s:initVariable("g:NERDTreeDirArrows", s:running_windows)
+call s:initVariable("g:NERDTreeDirArrows", nerdtree#runningWindows())
 
 2. visualmask:
-Issue:
+Issue(on linux):
 E197: Cannot set language to "en_US"
 Fix:
 Just need to do next in linux, Visual-Mark\plugin\visualmark.vim
