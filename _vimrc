@@ -88,7 +88,6 @@ Bundle 'gmarik/vundle'
 Bundle 'The-NERD-tree'
 Bundle 'majutsushi/tagbar'
 Bundle 'ctrlp.vim'
-Bundle 'winmanager'
 Bundle 'javacomplete'
 Bundle 'Python-mode-klen'
 Bundle 'The-NERD-Commenter'
@@ -100,10 +99,10 @@ Bundle 'derekwyatt/vim-scala'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'easymotion/vim-easymotion'
 Bundle 'tomasr/molokai'
-" Bundle 'Valloric/YouCompleteMe'
-" Bundle 'Shougo/neocomplete.vim'
 Bundle 'fatih/vim-go'
 Bundle 'SirVer/ultisnips'
+Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Shougo/neocomplete.vim'
 filetype on
 
 " Define scheme
@@ -140,7 +139,7 @@ nmap <Leader>t :TagbarToggle<CR>
 
 " MiniBufExplorer
 let g:miniBufExplMapCTabSwitchBufs=1
-let g:miniBufExplMapWindowNavVim=1 "different buffers change
+let g:miniBufExplMapWindowNavVim=1 " different buffers change
 let g:miniBufExplMapWindowNavArrows=1
 let g:miniBufExplTabWrap=1 "make tabs show complete
 let g:miniBufExplModSelTarget=1
@@ -285,13 +284,31 @@ autocmd FileType python,yaml set fdm=indent
 nnoremap <S-Space> za
 vnoremap <S-Space> za
 
+" Vim-go
+let g:go_highlight_functions=1
+let g:go_highlight_methods=1
+let g:go_highlight_fields=1
+let g:go_highlight_types=1
+let g:go_highlight_operators=1
+let g:go_highlight_build_constraints=1
+let g:go_fmt_autosave=0 " disable auto fmt on save
+
 " NeoComplete, conflict with fdm=syntax
 let g:neocomplete#enable_at_startup=1
 
 " Ycm
-let g:ycm_server_keep_logfiles=1
-let g:ycm_server_log_level='debug'
-let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" let g:ycm_server_keep_logfiles=1
+" let g:ycm_server_log_level='debug'
+" let g:ycm_min_num_of_chars_for_completion=99
+let enable_ycm=$YCM " set YCM=1 on windows or export YCM=1 on linux if you need to enable ycm
+if enable_ycm != 1
+    let g:loaded_youcompleteme=1 " this will disable ycm at startup
+endif
+if has('win32')
+    let g:ycm_global_ycm_extra_conf=$VIM.'/vimfiles/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+else
+    let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+endif
 let g:ycm_key_list_select_completion=['', '']
 let g:ycm_key_list_previous_completion=['']
 let g:ycm_key_invoke_completion='<C-Space>'
