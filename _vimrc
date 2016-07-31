@@ -86,19 +86,20 @@ endif
 
 Bundle 'gmarik/vundle'
 Bundle 'The-NERD-tree'
+Bundle 'minibufexpl.vim'
+Bundle 'Visual-Mark'
 Bundle 'majutsushi/tagbar'
 Bundle 'ctrlp.vim'
-Bundle 'javacomplete'
-Bundle 'Python-mode-klen'
 Bundle 'The-NERD-Commenter'
-Bundle 'minibufexpl.vim'
+Bundle 'brookhong/DBGPavim'
 Bundle 'OmniCppComplete'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'Visual-Mark'
-Bundle 'derekwyatt/vim-scala'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'easymotion/vim-easymotion'
 Bundle 'tomasr/molokai'
+Bundle 'javacomplete'
+Bundle 'Python-mode-klen'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'derekwyatt/vim-scala'
 Bundle 'fatih/vim-go'
 Bundle 'SirVer/ultisnips'
 Bundle 'Valloric/YouCompleteMe'
@@ -292,6 +293,9 @@ let g:go_highlight_types=1
 let g:go_highlight_operators=1
 let g:go_highlight_build_constraints=1
 let g:go_fmt_autosave=0 " disable auto fmt on save
+
+" DBGPavim
+let g:dbgPavimBreakAtEntry=1
 
 " NeoComplete, conflict with fdm=syntax
 let g:neocomplete#enable_at_startup=1
