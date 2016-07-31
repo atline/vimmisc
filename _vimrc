@@ -86,7 +86,7 @@ endif
 
 Bundle 'gmarik/vundle'
 Bundle 'The-NERD-tree'
-Bundle 'minibufexpl.vim'
+Bundle 'fholgado/minibufexpl.vim'
 Bundle 'Visual-Mark'
 Bundle 'majutsushi/tagbar'
 Bundle 'ctrlp.vim'
