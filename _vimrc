@@ -169,19 +169,19 @@ if has('cscope')
     nmap ,d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
     if has('win32')
-        nmap <F5> :silent !dir /s/b *.c,*.cpp,*.h,*.java > cscope.files<CR>
+        nmap <F8> :silent !dir /s/b *.c,*.cpp,*.h,*.java > cscope.files<CR>
                  \:silent !cscope -Rbk<CR>
                  \:silent !ctags -R --c++-kinds=+px --fields=+iaS --extra=+q<CR>
                  \:cs reset<CR><CR>
-        nmap <F6> :silent !dir /s/b *.c,*.cpp,*.h,*.java > cscope.files<CR>
+        nmap <F9> :silent !dir /s/b *.c,*.cpp,*.h,*.java > cscope.files<CR>
                  \:silent !cscope -Rbk<CR>
                  \:cs reset<CR><CR>
     else
-        nmap <F5> :!find . -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.java'>cscope.files<CR>
+        nmap <F8> :!find . -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.java'>cscope.files<CR>
                  \:!cscope -Rbkq<CR>
                  \:!ctags -R --c++-kinds=+px --fields=+iaS --extra=+q<CR>
                  \:cs reset<CR><CR>
-        nmap <F6> :!find . -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.java'>cscope.files<CR>
+        nmap <F9> :!find . -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.java'>cscope.files<CR>
                  \:!cscope -Rbkq<CR>
                  \:cs reset<CR><CR>
     endif
@@ -331,12 +331,13 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " ;t    => taglist
 " wm    => window manager
 " ,g    => cscope find definition, ,c etc
-" F5    => generate cscope, ctags
-" F6    => generate cscope only
+" F8    => generate cscope, ctags
+" F9    => generate cscope only
 " ;f    => open the ctrlp
 " ,g    => python jedi go to definition
 " ;ig   => vim indent guide
 " mm    => mark
+" F1    => show vimrc
 " F2    => mark find
 " F3    => vim grep
 " F7    => remove white space at the end
