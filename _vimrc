@@ -325,6 +325,12 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" Quick resize window size
+nmap <Leader>m :vertical resize +3<CR>
+nmap <Leader>l :vertical resize -3<CR>
+nmap <Leader>mm :resize +3<CR>
+nmap <Leader>ll :resize -3<CR>
+
 " Key mapping quick check
 " ;n    => open the nerdtree
 " ;cc   => comment
