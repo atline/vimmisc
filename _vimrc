@@ -96,6 +96,7 @@ Plugin 'OmniCppComplete'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'atline/molokai'
+Plugin 'FooSoft/vim-argwrap'
 Plugin 'javacomplete'
 Plugin 'Python-mode-klen'
 Plugin 'davidhalter/jedi-vim'
@@ -145,6 +146,9 @@ let g:miniBufExplMapWindowNavVim=1 " different buffers change
 let g:miniBufExplMapWindowNavArrows=1
 let g:miniBufExplTabWrap=1 "make tabs show complete
 let g:miniBufExplModSelTarget=1
+
+" ArgWrap
+nnoremap <silent> <leader>a :ArgWrap<CR>
 
 " Cscope & ctags
 if has('cscope')
