@@ -337,6 +337,7 @@ nmap <Leader>ll :resize -3<CR>
 
 " Key mapping quick check
 " ;n    => open the nerdtree
+" ;a    => arg wrap
 " ;cc   => comment
 " ;cu   => uncomment
 " ;t    => taglist
