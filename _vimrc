@@ -104,6 +104,7 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'fatih/vim-go'
 Plugin 'SirVer/ultisnips'
 Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'pangloss/vim-javascript'
 Plugin 'Valloric/YouCompleteMe'
 " Plugin 'Shougo/neocomplete.vim'
 filetype on
