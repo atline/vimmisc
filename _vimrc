@@ -68,10 +68,14 @@ set guioptions-=m
 set guioptions-=T
 set gcr=a:blinkon0
 
-" Remove space at end
-" highlight WhitespaceEOL ctermbg=red guibg=#00FFFF
-" match WhitespaceEOL /\s\+$/
-nmap <F7> :%s/\s*$//g<CR> :nohl<CR>
+" Remove trailing whitespace in vim before saving
+function! StripTrailingWhitespace()
+    normal mZ
+    let l:chars = col("$")
+    %s/\s\+$//e
+    normal `Z
+endfunction
+autocmd BufWritePre * call StripTrailingWhitespace()
 
 " Enable vundle
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
@@ -353,7 +357,6 @@ nmap <Leader>ll :resize -3<CR>
 " F1    => show vimrc
 " F2    => mark find
 " F3    => vim grep
-" F7    => remove white space at the end
 " ;;w   => quick motion after current cursor
 " ;;b   => quick motion before current cursor
 " F12   => reset to molokai scheme
