@@ -202,6 +202,12 @@ set nocp
 filetype plugin indent on
 set completeopt=longest,menu
 
+" Cursor highlight
+hi CursorLine cterm=NONE ctermbg=darkmagenta ctermfg=white guibg=darkmagenta guifg=white
+hi CursorColumn cterm=NONE ctermbg=darkmagenta ctermfg=white guibg=darkmagenta guifg=white
+nnoremap <Leader>h :set cul! cuc!<CR>
+
+" Language complete
 "autocmd FileType python set omnifunc=pythoncomplete#Complete " use jedi
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
