@@ -110,7 +110,7 @@ Plugin 'fatih/vim-go'
 Plugin 'SirVer/ultisnips'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'pangloss/vim-javascript'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 " Plugin 'Shougo/neocomplete.vim'
 filetype on
 
@@ -346,6 +346,11 @@ nmap <Leader>m :vertical resize +3<CR>
 nmap <Leader>l :vertical resize -3<CR>
 nmap <Leader>mm :resize +3<CR>
 nmap <Leader>ll :resize -3<CR>
+
+" Vim-javascript
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
 
 " Key mapping quick check
 " ;n    => open the nerdtree
