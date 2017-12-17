@@ -110,6 +110,7 @@ Plugin 'fatih/vim-go'
 Plugin 'SirVer/ultisnips'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'othree/html5.vim'
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'Shougo/neocomplete.vim'
 filetype on
