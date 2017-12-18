@@ -349,6 +349,9 @@ nmap <Leader>l :vertical resize -3<CR>
 nmap <Leader>mm :resize +3<CR>
 nmap <Leader>ll :resize -3<CR>
 
+" Emmet
+let g:user_emmet_expandabbr_key = '<c-q>'
+
 " Key mapping quick check
 " ;n    => open the nerdtree
 " ;a    => arg wrap
