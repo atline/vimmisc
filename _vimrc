@@ -109,11 +109,12 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'fatih/vim-go'
 Plugin 'SirVer/ultisnips'
 Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'othree/html5.vim'
+Plugin 'lukaszb/vim-web-indent'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'othree/html5.vim'
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'Shougo/neocomplete.vim'
-filetype on
+filetype plugin indent on
 
 " Define scheme
 if !has('win32')
@@ -347,11 +348,6 @@ nmap <Leader>m :vertical resize +3<CR>
 nmap <Leader>l :vertical resize -3<CR>
 nmap <Leader>mm :resize +3<CR>
 nmap <Leader>ll :resize -3<CR>
-
-" Vim-javascript
-let g:html_indent_inctags = "html,body,head,tbody"
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
 
 " Key mapping quick check
 " ;n    => open the nerdtree
