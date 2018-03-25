@@ -250,7 +250,7 @@ let g:pymode_folding=0
 let g:pymode_options_colorcolumn=0
 let g:pymode_rope=0
 let g:pymode_rope_lookup_project=0
-let g:pymode_lint=1
+let g:pymode_lint=0
 let g:pymode_lint_checker="pyflakes,pep8,pep257"
 let g:pymode_lint_ignore="E265,E501,E302"
 let g:pymode_lint_signs=0
@@ -261,6 +261,8 @@ let g:pymode_syntax_builtin_funcs = 0
 let g:pymode_syntax_indent_errors=g:pymode_syntax_all
 let g:pymode_syntax_space_errors=g:pymode_syntax_all
 autocmd FileType python setlocal nonumber " disable line number
+nmap <LEADER>z :let g:pymode_lint=1<CR>
+nmap <LEADER>zz :let g:pymode_lint=0<CR>
 
 " Jedi
 let g:jedi#completions_enabled=1
@@ -366,6 +368,8 @@ let g:user_emmet_expandabbr_key = '<c-q>'
 " F8    => generate cscope, ctags
 " F9    => generate cscope only
 " ;f    => open the ctrlp
+" ;z    => enable python lint
+" ;zz   => disable python lint
 " ,g    => python jedi go to definition
 " ;ig   => vim indent guide
 " mm    => mark
